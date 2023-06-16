@@ -1,6 +1,6 @@
 const card =  document.querySelector(".card")
 const search = document.querySelector("form")
-const button = document.querySelector("button")
+
 
  search.addEventListener("submit", (event) =>{
     event.preventDefault()
@@ -15,7 +15,7 @@ const data = async(url) =>{
     
     const response = await fetch(url)
     const weatherInfo = await response.json()
-    console.log(weatherInfo);
+   
      
     card.innerHTML = `<div class="weatherCard">
                       <div class="name">
@@ -25,10 +25,8 @@ const data = async(url) =>{
                       <img src="https://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}.png">
                       <div class="weather">
                       <p>Humidity ${weatherInfo.main.humidity}%</p>
-                      <p>Wind ${Math.floor(weatherInfo.wind.speed * 3.6)} Km/h</p></div></div>`
+                      <p>Wind speed ${Math.floor(weatherInfo.wind.speed * 3.6)} Km/h</p></div></div>`
 
 
 }
 
-
-   
